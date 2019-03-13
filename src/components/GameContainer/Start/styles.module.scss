@@ -1,7 +1,7 @@
 @import "styles/variables.scss";
 
 .container {
-  background: $light-gray;
+  background: $secondary-color;
   padding: $spacing;
   margin: $spacing / 2;
 }
@@ -18,7 +18,7 @@
   width: 35px;
   height: 35px;
   border-radius: 100%;
-  background: #3498db;
+  background: $blue;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -45,7 +45,7 @@
 }
 
 .expandableMenu {
-  border-top: 2px dashed;
+  border-top: 1px dashed $yellow;
   margin-top: $spacing;
   padding: $spacing;
 }

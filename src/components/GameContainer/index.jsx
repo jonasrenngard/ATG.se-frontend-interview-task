@@ -46,7 +46,7 @@ class RaceWrapper extends React.Component {
                   <span className={styles.raceNumber}>{race.number}</span>
 
                   <div className={styles.raceInfo}>
-                    <span>{race.name}</span>
+                    <span className={styles.raceName}>{race.name}</span>
 
                     <span className={styles.startDate}>
                       Starts at: {moment(race.startTime).format("DD/MM HH:mm")}

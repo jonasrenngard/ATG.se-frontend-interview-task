@@ -7,13 +7,13 @@
 }
 
 .raceContainer {
-  background: #fff;
+  background: $primary-color;
   margin-bottom: $spacing * 2;
   width: 400px;
   border-radius: $border-radius;
   box-shadow: $box-shadow;
   min-height: 90px;
-  border-top: 2px solid #3498db;
+  border-top: 2px solid $blue;
   padding-bottom: $spacing;
   margin: $spacing;
 
@@ -23,12 +23,16 @@
     min-height: 60px;
   }
 
+  .raceName {
+    font-weight: bold;
+  }
+
   .raceNumber {
     color: white;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #3498db;
+    background: $blue;
     width: 50px;
     height: 30px;
   }
@@ -43,7 +47,7 @@
     position: absolute;
     top: -20px;
     right: 10px;
-    color: #95a5a6;
+    color: $yellow;
     font-style: italic;
   }
 }
