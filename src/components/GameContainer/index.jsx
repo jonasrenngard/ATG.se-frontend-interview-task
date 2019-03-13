@@ -9,6 +9,12 @@ class RaceWrapper extends React.Component {
     this.getGame(props.gameId)
   }
 
+  componentDidUpdate = prevProps => {
+    if (prevProps.gameId !== this.props.gameId) {
+      this.getGame(this.props.gameId)
+    }
+  }
+
   state = {
     game: undefined,
   }
@@ -33,7 +39,7 @@ class RaceWrapper extends React.Component {
     return (
       <section className={styles.races}>
         {game && (
-          <section>
+          <React.Fragment>
             {game.races.map(race => (
               <section key={race.id} className={styles.raceContainer}>
                 <div className={styles.rootInfo}>
@@ -43,7 +49,7 @@ class RaceWrapper extends React.Component {
                     <span>{race.name}</span>
 
                     <span className={styles.startDate}>
-                      Startar: {moment(race.startTime).format("DD/MM HH:mm")}
+                      Starts at: {moment(race.startTime).format("DD/MM HH:mm")}
                     </span>
                   </div>
                 </div>
@@ -55,7 +61,7 @@ class RaceWrapper extends React.Component {
                 </div>
               </section>
             ))}
-          </section>
+          </React.Fragment>
         )}
       </section>
     )

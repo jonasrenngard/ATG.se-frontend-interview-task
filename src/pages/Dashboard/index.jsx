@@ -8,42 +8,49 @@ class Dashboard extends React.Component {
   }
 
   handleSearch = value => {
-    try {
-      fetch(`https://www.atg.se/services/racinginfo/v1/api/products/${value}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then(body => {
-        body.json().then(data => this.setState({ product: data }))
+    fetch(`https://www.atg.se/services/racinginfo/v1/api/products/${value}`, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }).then(body => {
+      body.json().then(data => {
+        if (Object.keys(data).length > 0) {
+          this.setState({ product: data })
+        }
       })
-    } catch (err) {
-      console.log("product not found", err)
-    }
+    })
   }
 
   render() {
     const { product } = this.state
 
     let nearest
-    if (product && product.upcoming) {
-      nearest = product.upcoming.sort(
-        (a, b) => new Date(b.date) - new Date(a.date)
-      )[0]
+    if (product) {
+      if (product.upcoming) {
+        nearest = product.upcoming.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        )[0]
+      } else {
+        nearest = product.results.sort(
+          (a, b) => new Date(b.date) - new Date(a.date)
+        )[0]
+      }
     }
 
     return (
       <section>
-        <TextFieldContainer onTextFieldChange={this.handleSearch} />
+        <TextFieldContainer onSearch={this.handleSearch} />
 
         {product && (
           <section>
-            <h2>{product.betType}</h2>
+            <h2>
+              {product.betType}{" "}
+              {product.upcoming ? "Upcoming races" : "Results"}
+            </h2>
 
-            {product.upcoming && (
-              <React.Fragment>
-                <GameContainer gameId={nearest.id} />
-              </React.Fragment>
-            )}
+            <React.Fragment>
+              <GameContainer gameId={nearest.id} />
+            </React.Fragment>
           </section>
         )}
       </section>
