@@ -10,3 +10,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Side note: I got cors errors on the requests to the API. I needed to start chrome from the command line using the following guide:
 
 https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome
+
+
+The only libs used in this application is: 
+- node-sass
+- moment.js
