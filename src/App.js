@@ -1,54 +1,13 @@
 import React, { Component } from "react"
-import "styles/globals.scss"
+import "./styles/globals.scss"
 import "./App.css"
-
-import TextFieldContainer from "components/TextFieldContainer"
-import GameContainer from "components/GameContainer"
+import Dashboard from "./pages/Dashboard"
 
 class App extends Component {
-  state = {
-    product: undefined,
-  }
-
-  handleSearch = value => {
-    try {
-      fetch(`https://www.atg.se/services/racinginfo/v1/api/products/${value}`, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      }).then(body => {
-        body.json().then(data => this.setState({ product: data }))
-      })
-    } catch (err) {
-      console.log("product not found", err)
-    }
-  }
-
   render() {
-    const { product } = this.state
-
-    let nearest
-    if (product && product.upcoming) {
-      nearest = product.upcoming.sort(
-        (a, b) => new Date(b.date) - new Date(a.date)
-      )[0]
-    }
-
     return (
       <div className="App">
-        <TextFieldContainer onTextFieldChange={this.handleSearch} />
-
-        {product && (
-          <section>
-            <h2>{product.betType}</h2>
-
-            {product.upcoming && (
-              <React.Fragment>
-                <GameContainer gameId={nearest.id} />
-              </React.Fragment>
-            )}
-          </section>
-        )}
+        <Dashboard />
       </div>
     )
   }
