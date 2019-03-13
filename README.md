@@ -15,3 +15,4 @@ https://stackoverflow.com/questions/3102819/disable-same-origin-policy-in-chrome
 The only libs used in this application is: 
 - node-sass
 - moment.js
+- react-select
