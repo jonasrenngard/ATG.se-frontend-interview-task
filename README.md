@@ -18,6 +18,8 @@ The only libs used in this application is:
 - react-select
 
 Demo images:
+
 https://gyazo.com/6f7cf855c940710d08d534277f3e7952
 
 https://gyazo.com/fe17c97474496e43c9a9abf613516081
+
