@@ -3,18 +3,6 @@
 .searchBarWrapper {
   display: flex;
   justify-content: center;
-}
-
-.searchBtn {
-  background: $blue;
-  color: #fff;
-  padding: $spacing;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
-  cursor: pointer;
-  transition: 200ms all;
-
-  &:hover {
-    opacity: 0.8;
-  }
+  color: #000;
+  text-align: start;
 }

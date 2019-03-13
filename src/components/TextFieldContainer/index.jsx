@@ -1,23 +1,17 @@
 import React from "react"
 import styles from "./styles.module.scss"
+import Select from "react-select"
+
+const OPTIONS = [
+  { value: "V75", label: "V75" },
+  { value: "V65", label: "V65" },
+  { value: "V64", label: "V64" },
+  { value: "V4", label: "V4" },
+]
 
 class TextFieldContainer extends React.Component {
-  state = {
-    textFieldValue: "",
-  }
-
-  handleSearch = () => {
-    this.props.onSearch(this.state.textFieldValue)
-  }
-
-  handleChange = event => {
-    this.setState({ textFieldValue: event.target.value.toUpperCase() })
-  }
-
-  handleKeyPress = target => {
-    if (target.charCode == 13) {
-      this.props.onSearch(this.state.textFieldValue)
-    }
+  handleChange = option => {
+    this.props.onSearch(option.value)
   }
 
   render() {
@@ -26,15 +20,7 @@ class TextFieldContainer extends React.Component {
         <h2>Search games</h2>
 
         <div className={styles.searchBarWrapper}>
-          <input
-            onChange={this.handleChange}
-            placeholder="Type here to search games"
-            onKeyPress={this.handleKeyPress}
-          />
-
-          <div className={styles.searchBtn} onClick={this.handleSearch}>
-            Search
-          </div>
+          <Select options={OPTIONS} onChange={this.handleChange} />
         </div>
       </section>
     )

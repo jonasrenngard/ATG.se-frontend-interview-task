@@ -6,7 +6,6 @@ import styles from "./styles.module.scss"
 class Dashboard extends React.Component {
   state = {
     product: undefined,
-    errorMessage: "",
   }
 
   handleSearch = value => {
@@ -17,19 +16,14 @@ class Dashboard extends React.Component {
     }).then(body => {
       body.json().then(data => {
         if (Object.keys(data).length > 0) {
-          this.setState({ product: data, errorMessage: "" })
-        } else {
-          this.setState({
-            errorMessage: "Could not find any races with that name",
-            product: undefined,
-          })
+          this.setState({ product: data })
         }
       })
     })
   }
 
   render() {
-    const { product, errorMessage } = this.state
+    const { product } = this.state
 
     let nearest
     if (product) {
@@ -47,10 +41,6 @@ class Dashboard extends React.Component {
     return (
       <section>
         <TextFieldContainer onSearch={this.handleSearch} />
-
-        {errorMessage && (
-          <div className={styles.errorMessage}>{errorMessage}</div>
-        )}
 
         {product && (
           <section>
