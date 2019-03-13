@@ -1,0 +1,46 @@
+@import "styles/variables.scss";
+
+.races {
+  display: flex;
+  justify-content: center;
+}
+
+.raceContainer {
+  background: #fff;
+  margin-bottom: $spacing * 2;
+  width: 400px;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow;
+  min-height: 90px;
+  border-top: 2px solid #3498db;
+  padding-bottom: $spacing;
+
+  .rootInfo {
+    position: relative;
+    display: flex;
+  }
+
+  .raceNumber {
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3498db;
+    width: 50px;
+    height: 30px;
+  }
+
+  .raceInfo {
+    padding: $spacing;
+    width: 100%;
+    text-align: start;
+  }
+
+  .startDate {
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    color: #95a5a6;
+    font-style: italic;
+  }
+}

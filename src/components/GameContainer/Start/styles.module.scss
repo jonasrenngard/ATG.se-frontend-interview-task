@@ -1,0 +1,51 @@
+@import "styles/variables.scss";
+
+.container {
+  background: $light-gray;
+  padding: $spacing;
+  margin: $spacing / 2;
+}
+
+.startContainer {
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.startNumber {
+  width: 35px;
+  height: 35px;
+  border-radius: 100%;
+  background: #3498db;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.horseWrapper {
+  width: 80%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.horseName {
+  text-transform: uppercase;
+}
+
+.toggleIcon {
+  transform: rotate(90deg);
+}
+
+.toggleIconExpanded {
+  transform: rotate(-90deg);
+  transition: 200ms all;
+}
+
+.expandableMenu {
+  border-top: 2px dashed;
+  margin-top: $spacing;
+  padding: $spacing;
+}
